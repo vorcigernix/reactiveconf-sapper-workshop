@@ -4,7 +4,7 @@
 
 Working repository for ReactiveConf 2019 workshop. Our goal is to build a website for fictional café with [Svelte][svelte], [Sapper][sapper], and [Prismic][prismic] as headless CMS. 
 
-The result can be deployed to [ZEIT][zeit]. You must install Now globally and set Google Analytics ID via `now secrets add tracking-id "UA-47222000-0"`.
+The result can be deployed to [ZEIT][zeit]. You must install Now globally and set Google Analytics ID via `now secrets add tracking-id "UA-NNXXXXXX-X"`.
 
 
 ## Prerequisites
