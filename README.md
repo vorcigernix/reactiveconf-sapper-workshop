@@ -2,7 +2,10 @@
 
 > It is not cool to have a WordPress template full of jQuery animations anymore. We can do way better and we all know it. But creating client side app in React for a web presentation will introduce its own set of problems. We will show you how you to create a presentation based on a headless CMS with Svelte and Sapper, a universal JavaScript framework with server-side rendering and very low runtime overhead.
 
-Working repository for ReactiveConf 2019 workshop. Our goal is to build a website for fictional café with [Svelte][svelte], [Sapper][sapper], and [Prismic][prismic] as headless CMS. The result can be deployed to [ZEIT][zeit].
+Working repository for ReactiveConf 2019 workshop. Our goal is to build a website for fictional café with [Svelte][svelte], [Sapper][sapper], and [Prismic][prismic] as headless CMS. 
+
+The result can be deployed to [ZEIT][zeit]. You must install Now globally and set Google Analytics ID via `now secrets add tracking-id "UA-47222000-0"`.
+
 
 ## Prerequisites
 
