@@ -24,7 +24,7 @@
         "POST",
         "GET"
       ],
-      "dest": "/lambda/data.js"
+      "dest": "/lambda"
     }
   ],
   "public": true
