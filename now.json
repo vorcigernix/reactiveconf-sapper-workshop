@@ -27,10 +27,5 @@
       "dest": "/lambda/data.js"
     }
   ],
-  "public": true,
-  "build": {
-    "env": {
-      "TRACKING_ID": "@tracking-id"
-    }
-  }
+  "public": true
 }

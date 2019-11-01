@@ -2,6 +2,7 @@
   import HeroBanner from '../components/HeroBanner.svelte';
   import Overview from '../components/Overview.svelte';
   import OpenHours from '../components/OpenHours.svelte';
+  import Analytics from '../components/Analytics.svelte';
 </script>
 
 <style>
@@ -19,4 +20,5 @@
     bannerImg="homepage" />
   <Overview />
   <OpenHours />
+  <Analytics gaID="UA-134288088-2" />
 </div>
