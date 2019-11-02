@@ -7,14 +7,14 @@ import gql from "graphql-tag";
 const BASE_URL = process.env.CMS_URL || 'https://sapperweb.prismic.io/graphql';
 
 const client = new ApolloClient({
-    link: PrismicLink({
-        uri: BASE_URL,
-    }),
-    cache: new InMemoryCache()
+  link: PrismicLink({
+    uri: BASE_URL,
+  }),
+  cache: new InMemoryCache()
 });
 
-async function getProducts() {
-client.query({
+module.exports = async (req, res) => {
+  client.query({
     query: gql`
     {
         allProducts {
@@ -38,16 +38,10 @@ client.query({
         }
       }      
     `
-}).then(response => {
-    console.log(response);
-    return response;
-}).catch(error => {
-    console.error(error);
-    return error;
-});
-}
+  }).then(response => {
+    res.status(200).send(JSON.stringify(response));
+  }).catch(error => {
+    res.status(500).send(error);
+  });
 
-module.exports = async (req, res) => {
-    const products = await getProducts();
-    res.status(200).send(JSON.stringify(products));
-  };
+};
