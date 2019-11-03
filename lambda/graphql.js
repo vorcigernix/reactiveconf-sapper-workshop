@@ -13,6 +13,27 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+function reduceCategories(list, { data }) {
+  if (!data.allProducts.edges[0].node.categories[0].link.title[0].text) {
+    console.log('malformed', data);
+    return list;
+  }
+  const { categories, title, image, price, description } = data;
+  const categoryName = categories[0].link.data.title[0].text;
+  const mealName = title[0].text;
+  const descriptionText = description[0].text;
+
+  return {
+    ...list,
+    [categoryName]: (list[categoryName] || []).concat({
+      name: mealName,
+      image,
+      price,
+      description: descriptionText,
+    }),
+  };
+}
+
 module.exports = async (req, res) => {
   client.query({
     query: gql`
@@ -39,7 +60,8 @@ module.exports = async (req, res) => {
       }      
     `
   }).then(response => {
-    res.status(200).send(JSON.stringify(response));
+    const itemsByCategory = response.results.reduce(reduceCategories, {});
+    res.status(200).send(JSON.stringify(itemsByCategory));
   }).catch(error => {
     res.status(500).send(error);
   });
