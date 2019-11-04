@@ -16,8 +16,10 @@ const client = new ApolloClient({
 function reduceCategories(list, { data }) {
   if (!data.allProducts.edges[0].node.categories[0].link.title[0].text) {
     console.log('malformed', data);
+    list.add("malformed");
     return list;
   }
+  console.log(data);
   const { categories, title, image, price, description } = data;
   const categoryName = categories[0].link.data.title[0].text;
   const mealName = title[0].text;
